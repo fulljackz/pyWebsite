@@ -1,0 +1,197 @@
+h1{
+  margin-top: 1.5em;
+}
+
+/* Body and title CSS mainly inspired by http://bettermotherfuckingwebsite.com/ */
+
+
+h1,h2,h3,h4,h5{
+  line-height:1.2
+}
+
+*, html {
+  line-height: 1.6em;
+}
+
+article img {
+  width:auto;
+  max-width:100%;
+  height:auto;
+}
+
+#wrapper {
+  margin: auto;
+  max-width:960px;
+  font-size:1.1em;
+  color:#444;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+header {
+	padding: 1em;
+	float: left;
+	width: 100%;
+}
+
+a.top {
+  display: scroll;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+
+nav ul {
+	padding: 0;
+	list-style: none;
+	position: relative;
+	display: inline-table;
+	z-index: 9999;
+	float: left;
+	width: 100%;
+}
+
+ul.egmenu {
+    height: 1em;
+    width: 100%;
+}
+
+ul.egmenu > li {
+    float: left;
+    position: relative;
+}
+
+ul.egmenu ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+}
+
+ul.egmenu a {
+    cursor: pointer;
+    display: block;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+ul.egmenu li {
+  list-style: none;
+}
+
+ul.egmenu li:hover ul {
+  display: block;
+}
+
+section.content {
+  width: 70%;
+  float:left;
+}
+
+.content article {
+  width:100%;
+  float:left;
+  padding: 0 0 1em;
+  margin: 0 0 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+article .entry {
+  clear:both;
+  padding: 0 0 1em;
+}
+
+h1.post-title {
+  font-size: 1.6em;
+  margin:0;
+  padding:0;
+}
+
+.entry.post-meta {
+  color: #888;
+}
+
+.entry.post-meta span {
+  padding: 0 1em 0 0;
+}
+
+.entry.post-content {
+  font-size: 1.125em;
+  margin:0;
+  padding:0;
+}
+
+/* css for <aside class='sidebar'> */
+aside.sidebar {
+  width: 25%;
+  float:right;
+  font-size:1.1em;
+}
+
+aside.sidebar ul {
+	width:100%;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	list-style: none;
+}
+
+aside.sidebar ul li {
+	width:100%;
+	margin: 0px 0px 2em;
+	padding: 0px;
+	float: left;
+	list-style: none;
+}
+
+aside.sidebar ul li ul li {
+	margin: 0px 0px 0.2em;
+	padding: 0px;
+}
+
+aside.sidebar ul li ul li ul li {
+	margin: 0px;
+	padding: 0px 0px 0px 1em;
+	width: 90%;
+	font-size: 0.9em;
+}
+
+aside.sidebar ul li h3.widget-title {
+	width:100%;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+  font-size: 1.45em;
+}
+
+/* css for <footer> */
+footer {
+  line-height: 0.1em;
+	max-width: 960px;
+	float:left;
+  font-size: 0.8em;
+	background-color: white;
+	margin-top: 2em;
+}
+
+@media only screen and (min-width:470px) and (max-width:770px){
+#wrapper {
+  width:96%;
+  text-align: left;
+}
+
+section.content, aside.sidebar {
+  width:100%;
+  }
+}
+
+@media only screen and (min-width:270px) and (max-width:470px){
+#wrapper {
+  width:96%;
+  text-align: left;
+}
+
+section.content, aside.sidebar {
+  width:100%;
+  }
+}
