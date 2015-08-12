@@ -8,7 +8,7 @@ import os
 import fileinput
 import re
 
-workingDir = "./articles"
+workingDir = "./"
 now = datetime.date.today()
 
 def printHelp():
@@ -51,19 +51,24 @@ def main():
 	output.close()
 
 def buildIndex():
-	workingDir = "./articles"
+	workingDir = "./"
 	now = datetime.date.today()
+	abstractList = []
+
 	# Build index with articles abstract
 	for file in os.listdir(workingDir):
 		if file.endswith(".md"):
 			infile = open(workingDir + "/" + file,mode="r").read()
 			abstracts = re.findall(r'<!---Abstract(.*?)Abstract-->',infile,re.DOTALL)
-			print(abstracts)
-			index = open("index_template.html", "r").read()
-			index = index.replace("#ARTICLE-SUMMARY#", markdown.markdown(''.join(abstracts), output_format="html5"))
-			output = codecs.open((workingDir + "/" + "index.html"), "w", encoding="utf-8", errors="xmlcharrefreplace")
-			output.write(index)
-			output.close()
+			abstractList.append(abstracts)
+	index = open("index_template.html", "r").read()
+	output = codecs.open((workingDir + "/" + "index.html"), "w", encoding="utf-8", errors="xmlcharrefreplace")
+	abstractString = str(abstractList)
+	abstractString = markdown.markdown(''.join(abstractString), output_format="html5")
+	#~ print(abstractString)
+	index = index.replace("#ARTICLE-SUMMARY#", abstractString)
+	output.write(index)
+	output.close()
 
 
 if __name__ == "__main__":
