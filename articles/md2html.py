@@ -8,7 +8,7 @@ import os
 import fileinput
 import re
 
-workingDir = "/home/manu/Documents/Devlopments/Python/pyWebsite/articles"
+workingDir = "./articles"
 now = datetime.date.today()
 
 def printHelp():
@@ -51,7 +51,7 @@ def main():
 	output.close()
 
 def buildIndex():
-	workingDir = "/home/manu/Documents/Devlopments/Python/pyWebsite/articles"
+	workingDir = "./articles"
 	now = datetime.date.today()
 	# Build index with articles abstract
 	for file in os.listdir(workingDir):
