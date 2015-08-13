@@ -10,23 +10,26 @@ import re
 
 workingDir = "./"
 now = datetime.date.today()
+path = workingDir + str(now.year)
 
 def printHelp():
-	print("Usage : ./md2html.py article.md") 
+	print("Usage : ./md2html.py") 
 
 def main():
-	path = workingDir + "/" + str(now.year)
-	#~ os.makedirs(path, exist_ok=True)
-	if len(sys.argv) != 2:
+	if len(sys.argv) > 1:
 		printHelp()
 		return
-	# Open arg file and parse lines by lines
-	try:
-		article = open(sys.argv[1], mode="r",encoding="utf-8")
-	except IOError:
-		print(sys.argv[1] + " doesn't exists.")
-		return
-	lines = article.readlines()  
+	buildIndex()
+	buildArticle(buildIndex())
+
+
+def buildArticle(article):
+	#~ os.makedirs(path, exist_ok=True)
+	if not article :
+		print("No file was returned from buildIndex function")
+	#~ lines = article.splitlines()
+	#~ lines = open(article, 'r')
+	lines = article.splitlines()
 	# Set article content from line 7 to eof
 	articleContent = lines[6:]
 	# Set metadata to list
@@ -44,38 +47,36 @@ def main():
 	template = template.replace("#CATEGORY#", articleMetaData[3])
 	template = template.replace("#CONTENT#", markdown.markdown(''.join(articleContent), output_format="html5"))
 	template = template.replace("#YEAR#", str(datetime.datetime.today().year))
+	artLink = (path + "/" + articleMetaData[1].lstrip().replace(" ", "_") + ".html")
 	# Create html file with metadata title + html
-	output = codecs.open(path + "/" + articleMetaData[1].lstrip().replace(" ", "_")+".html", "w", encoding="utf-8", errors="xmlcharrefreplace")
+	output = codecs.open(artLink, "w", encoding="utf-8", errors="xmlcharrefreplace")
 	# Write file
 	output.write(template)
 	output.close()
+	return artLink
 
 def buildIndex():
-	workingDir = "./"
-	now = datetime.date.today()
 	abstractList = []
-
 	# Build index with articles abstract
 	for file in os.listdir(workingDir):
 		if file.endswith(".md"):
-			infile = open(workingDir + "/" + file,mode="r").read()
+			infile = open(workingDir + file,mode="r").read()
 			abstracts = re.search(r'<!---Abstract(.*?)Abstract-->',infile,re.DOTALL)
+			more = re.search(r'<!---Meta(.*?)Meta-->',infile,re.DOTALL)
 			abstractList.append(abstracts.group(1))
-	
+			abstractList.append("<a href=" + (buildArticle(infile)+ ">read more</a>"))
 	index = open("index_template.html", "r").read()
-	output = codecs.open((workingDir + "/" + "index.html"), "w", encoding="utf-8", errors="xmlcharrefreplace")
-	
+	output = codecs.open((workingDir + "index.html"), "w", encoding="utf-8", errors="xmlcharrefreplace")
 	abstractString = ''.join(abstractList)
-	
 	abstractString = markdown.markdown(abstractString, output_format="html5")
-	#~ print(abstractString)
 	index = index.replace("#ARTICLE-SUMMARY#", abstractString)
 	output.write(index)
 	output.close()
+	return infile
 
 
 if __name__ == "__main__":
 	main()
-	buildIndex()
+	
 
 	
