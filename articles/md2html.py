@@ -59,12 +59,15 @@ def buildIndex():
 	for file in os.listdir(workingDir):
 		if file.endswith(".md"):
 			infile = open(workingDir + "/" + file,mode="r").read()
-			abstracts = re.findall(r'<!---Abstract(.*?)Abstract-->',infile,re.DOTALL)
-			abstractList.append(abstracts)
+			abstracts = re.search(r'<!---Abstract(.*?)Abstract-->',infile,re.DOTALL)
+			abstractList.append(abstracts.group(1))
+	
 	index = open("index_template.html", "r").read()
 	output = codecs.open((workingDir + "/" + "index.html"), "w", encoding="utf-8", errors="xmlcharrefreplace")
-	abstractString = str(abstractList)
-	abstractString = markdown.markdown(''.join(abstractString), output_format="html5")
+	
+	abstractString = ''.join(abstractList)
+	
+	abstractString = markdown.markdown(abstractString, output_format="html5")
 	#~ print(abstractString)
 	index = index.replace("#ARTICLE-SUMMARY#", abstractString)
 	output.write(index)
