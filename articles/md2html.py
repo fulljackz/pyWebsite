@@ -27,9 +27,13 @@ def buildArticle(article):
 	#~ os.makedirs(path, exist_ok=True)
 	if not article :
 		print("No file was returned from buildIndex function")
-	#~ lines = article.splitlines()
-	#~ lines = open(article, 'r')
-	lines = article.splitlines()
+	# Can not assign readlines() to articles (already open ?)
+	# So write article content to temprorary file and parse it line by line to write content.
+	f = open("temp", mode="w")
+	f.write(article)
+	f.close()
+	article = open("temp", mode="r",encoding="utf-8")
+	lines = article.readlines()
 	# Set article content from line 7 to eof
 	articleContent = lines[6:]
 	# Set metadata to list
@@ -53,6 +57,7 @@ def buildArticle(article):
 	# Write file
 	output.write(template)
 	output.close()
+	os.remove("temp")
 	return artLink
 
 def buildIndex():
@@ -72,6 +77,7 @@ def buildIndex():
 	index = index.replace("#ARTICLE-SUMMARY#", abstractString)
 	output.write(index)
 	output.close()
+	#~ os.remove("temp")
 	return infile
 
 
