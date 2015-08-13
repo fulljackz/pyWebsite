@@ -67,7 +67,6 @@ def buildIndex():
 		if file.endswith(".md"):
 			infile = open(workingDir + file,mode="r").read()
 			abstracts = re.search(r'<!---Abstract(.*?)Abstract-->',infile,re.DOTALL)
-			more = re.search(r'<!---Meta(.*?)Meta-->',infile,re.DOTALL)
 			abstractList.append(abstracts.group(1))
 			abstractList.append("<a href=" + (buildArticle(infile)+ ">read more</a>"))
 	index = open("index_template.html", "r").read()
