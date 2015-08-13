@@ -4,12 +4,11 @@ Tags : some, tags
 Category : Cat1
 
 <!---Abstract
-# A first article
+# My first article
 
+My first abstract for this article.
 
-## TITRE 2 ARTICLE 1
-
-My first abstract
+It will just be a sample from the content below.
 
 Abstract-->
 ------------------------------
