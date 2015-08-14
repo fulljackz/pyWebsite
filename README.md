@@ -1,7 +1,7 @@
 # pyWebsite
 Little script to generate static website and article part
 
-## How to use ?
+## Archive content
 Script runs with a single argument each times.
 
 Archive contains multiples files :
@@ -19,16 +19,18 @@ Script contains 3 "important" variables :
  * mdDir : is markdown storage folder. Store all of your articles here. Template is available for example.
  * html_Dir : is template folder var for html template files (ie : ./html_templates )
  
+## How it runs ?
 
+Just go to repo folder, write .md files in mdDir and exec script :
 
-Just go to articles folder, write .md file and exec script :
-
-./md2html.py 
+```
+./md2html.py mdDir/your_file.md
+```
 
 Script use metadata, you can replace all needed in your markdown file copied from articleTemplate.md.
 
-Article link will be based on workingDir variable.
+Article link will be based on article name
 
-For each script iteration, all articles (for the moment) are converted to html and ./articles/index.html is built to print articles abstracts.
+For each script iteration (for a new article), markdown related file is processed and articles/index.html is regenerated to use latest article.
 
-Inspired from : https://github.com/Konosprod/pySimpleMkSite 
+Inspired by : https://github.com/Konosprod/pySimpleMkSite 
