@@ -1,5 +1,6 @@
 Author : Manu
 Title : My first article
+Date : 14-08-2015
 Tags : some, tags
 Category : Cat1
 

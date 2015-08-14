@@ -15,7 +15,7 @@
 						<a href="../index.html">Home</a>
 					</li>
 					<li>
-						<a href="#">Articles</a>
+						<a href="index.html">Articles</a>
 					</li>
 				</ul>
 			</nav>
@@ -25,33 +25,42 @@
 		</hgroup>
 		<section class="content">
 			<article class="post">
-<!--
 				<h1 class="post-title">
-					 Articles part !
+					#TITLEPOST#
 				</h1>
--->
-				<p>
-				#ARTICLE-SUMMARY#
-				</p>
-		</section>
+				<!-- adding post meta -->
+				<div class="entry post-meta">
+					<span class="post-author">#AUTHOR#</span>
+					<span class="post-date">#DATE#</span>
+					<span class="post-category">#CATEGORY#</span>
+					<span class="post-tag">#TAGS#</span>
+				</div>
+				<!-- adding post content -->
+				<div class="entry post-content">
+					<p>
+						#CONTENT#
+					</p>
+				</div>
+			</article>
+		</section>		
+<!--
 		<aside class="sidebar">
 			<ul class="widget-sidebar">
 				<ul class="widget-sidebar">
-					<!-- some sample list -->
 					<li class="widget widget_categories">
 						<h3 class="widget-title">Archives</h3>
 						<ul>
 							<li>
-								<a href="./2015/">2015</a>
+								<a href="#">#YEAR#</a>
 							</li>
 							<li>
-								<a href="./2014/">2014</a>
+								<a href="#">2014</a>
 							</li>
 							<li>
-								<a href="./2013/">2013</a>
+								<a href="#">2013</a>
 							</li>
 							<li>
-								<a href="./2012/">2012</a>
+								<a href="#">2012</a>
 							</li>
 						</ul>
 						<h3 class="widget-title">Tags</h3>
@@ -59,7 +68,7 @@
 				</ul>
 			</ul>
 		</aside>
-
+-->
 		<footer>
 			<blockquote>
 			"Good design is as little design as possible."<br>
@@ -74,4 +83,3 @@
 <a class="top" href="#" title="Top"><img src="files/top.svg"/></a>
 </body>
 </html>
-
