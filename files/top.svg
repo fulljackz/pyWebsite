@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="50px" height="50px" viewBox="131 171 15 44" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="139" y1="214" x2="139.007" y2="183.963"/>
+    <polygon style="fill: #000000" points="139.008,176.463 144.006,186.465 139.007,183.963 134.006,186.462 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="139.008,176.463 144.006,186.465 139.007,183.963 134.006,186.462 "/>
+  </g>
+</svg>
