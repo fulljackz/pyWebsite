@@ -18,8 +18,12 @@ Script contains 3 "important" variables :
  * buildDir : is reception folder var for html built files (ie : /var/www/articles/ )
  * mdDir : is markdown storage folder. Store all of your articles here. Template is available for example.
  * html_Dir : is template folder var for html template files (ie : ./html_templates )
- 
-## How it runs ?
+ * Script use markdown and pygments lib. You can install them with :
+```
+pip3 install markdown Pygments
+``` 
+
+## How it works ?
 
 Just go to repo folder, write .md files in mdDir and exec script :
 
