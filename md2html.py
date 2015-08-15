@@ -18,7 +18,7 @@ html_Dir = "./html_templates/"
 
 # Init abstractList as list
 abstractList = []
-
+tagsList = []
 def printHelp():
 	print("Usage : ./md2html.py article.md") 
 
@@ -55,7 +55,7 @@ def main():
 	output.write(template)
 	output.close()
 	# Build index with articles abstract
-	for file in os.listdir(mdDir):
+	for file in sorted(os.listdir(mdDir), reverse = True):
 		if file.startswith(".tmp"):
 			os.remove(".tmp")
 		if file.endswith(".md"):
@@ -68,9 +68,12 @@ def main():
 			tmpFile = open(".tmp", mode="r",encoding="utf-8")
 			l = tmpFile.readlines()
 			articleTitle = (l[1].strip().split(':', 1)[1].lstrip().replace(" ", "_"))
-			abstracts = re.search(r'<!---Abstract(.*?)Abstract-->',infile,re.DOTALL)
+			abstracts = re.search(r'<!---Abstract(.*?)------------------------------',infile,re.DOTALL)
 			abstractList.append(abstracts.group(1))
 			abstractList.append("<a href=" + articleTitle + ">read more</a>")
+			#~ # Get tags from article
+			#~ tags = (l[3].strip().split(':', 1)[1].lstrip().replace(",", ""))
+			#~ tagsList = tags.split(' ')
 			# Delete temp created file for next iteration
 			os.remove(".tmp")
 	index = open(html_Dir + "index_template.html", "r").read()
@@ -80,7 +83,7 @@ def main():
 	index = index.replace("#ARTICLE-SUMMARY#", abstractString)
 	output.write(index)
 	output.close()
-	return infile
+	#~ return infile
 	
 if __name__ == "__main__":
 	main()
