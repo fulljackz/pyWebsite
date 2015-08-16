@@ -10,6 +10,7 @@ Archive contains multiples files :
  * index.html : simple web page to place in root web folder
  * md2html.py : script to transform markdown to html
  * css : folder which contains simple css file to make simple but easy readable website.
+ * files : folder contains various files, top.svg by default.
 
 ## Few notes :
 
@@ -18,9 +19,10 @@ Script contains 3 "important" variables :
  * buildDir : is reception folder var for html built files (ie : /var/www/articles/ )
  * mdDir : is markdown storage folder. Store all of your articles here. Template is available for example.
  * html_Dir : is template folder var for html template files (ie : ./html_templates )
- * Script use markdown and pygments lib. You can install them with :
+
+ * Script use markdown lib. You can install them with :
 ```
-pip3 install markdown Pygments
+pip3 install markdown
 ``` 
 
 ## How it works ?
@@ -30,6 +32,8 @@ Just go to repo folder, write .md files in mdDir and exec script :
 ```
 ./md2html.py mdDir/your_file.md
 ```
+ * Markdown files must be named with a number (increment) : 01_My_file.md, 02_Other_file.md
+
 
 Script use metadata, you can replace all needed in your markdown file copied from articleTemplate.md.
 
