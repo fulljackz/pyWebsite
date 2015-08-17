@@ -50,7 +50,7 @@ def main():
 	template = template.replace("#CATEGORY#", articleMetaData[4])
 	template = template.replace("#CONTENT#", markdown.markdown(''.join(articleContent), output_format="html5"))
 	template = template.replace("#YEAR#", str(datetime.datetime.today().year))
-	output = codecs.open(buildDir + articleMetaData[1].lstrip().replace(" ", "-"), "w", encoding="utf-8", errors="xmlcharrefreplace")
+	output = codecs.open(buildDir + articleMetaData[1].lower().lstrip().replace(" ", "-"), "w", encoding="utf-8", errors="xmlcharrefreplace")
 	# Write file
 	output.write(template)
 	output.close()
@@ -67,9 +67,9 @@ def main():
 			f.close()
 			tmpFile = open(".tmp", mode="r",encoding="utf-8")
 			l = tmpFile.readlines()
-			articleTitle = (l[1].strip().split(':', 1)[1].lstrip().replace(" ", "-").lower())
+			articleTitle = (l[1].strip().split(':', 1)[1].lstrip().replace(" ", "-"))
 			abstracts = re.search(r'<!---Abstract(.*?)------------------------------',infile,re.DOTALL)
-			abstractList.append("\n\n" + "#" + l[1].strip().split(':', 1)[1].lstrip() + abstracts.group(1) + "<a href=" + articleTitle + ">read more</a>")
+			abstractList.append("\n\n" + "#" + l[1].strip().split(':', 1)[1].lstrip() + abstracts.group(1) + "<a href=" + articleTitle.lower() + ">read more</a>")
 			#~ # Get tags from article
 			#~ tags = (l[3].strip().split(':', 1)[1].lstrip().replace(",", ""))
 			#~ tagsList = tags.split(' ')
