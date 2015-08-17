@@ -50,7 +50,7 @@ def main():
 	template = template.replace("#CATEGORY#", articleMetaData[4])
 	template = template.replace("#CONTENT#", markdown.markdown(''.join(articleContent), output_format="html5"))
 	template = template.replace("#YEAR#", str(datetime.datetime.today().year))
-	output = codecs.open(buildDir + articleMetaData[1].lstrip().replace(" ", "_"), "w", encoding="utf-8", errors="xmlcharrefreplace")
+	output = codecs.open(buildDir + articleMetaData[1].lstrip().replace(" ", "-"), "w", encoding="utf-8", errors="xmlcharrefreplace")
 	# Write file
 	output.write(template)
 	output.close()
