@@ -69,8 +69,7 @@ def main():
 			l = tmpFile.readlines()
 			articleTitle = (l[1].strip().split(':', 1)[1].lstrip().replace(" ", "_"))
 			abstracts = re.search(r'<!---Abstract(.*?)------------------------------',infile,re.DOTALL)
-			abstractList.append(abstracts.group(1))
-			abstractList.append("<a href=" + articleTitle + ">read more</a>")
+			abstractList.append("\n\n" + "#" + l[1].strip().split(':', 1)[1].lstrip() + abstracts.group(1) + "<a href=" + articleTitle + ">read more</a>")
 			#~ # Get tags from article
 			#~ tags = (l[3].strip().split(':', 1)[1].lstrip().replace(",", ""))
 			#~ tagsList = tags.split(' ')
