@@ -67,7 +67,7 @@ def main():
 			f.close()
 			tmpFile = open(".tmp", mode="r",encoding="utf-8")
 			l = tmpFile.readlines()
-			articleTitle = (l[1].strip().split(':', 1)[1].lstrip().replace(" ", "-"))
+			articleTitle = (l[1].strip().split(':', 1)[1].lstrip().replace(" ", "-").lower())
 			abstracts = re.search(r'<!---Abstract(.*?)------------------------------',infile,re.DOTALL)
 			abstractList.append("\n\n" + "#" + l[1].strip().split(':', 1)[1].lstrip() + abstracts.group(1) + "<a href=" + articleTitle + ">read more</a>")
 			#~ # Get tags from article
