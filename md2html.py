@@ -9,7 +9,7 @@ import fileinput
 import re
 
 # Folder which will contain articles
-buildDir = "/var/www/website/articles/"
+buildDir = "/var/www/articles/"
 
 # Folder where markdown files will be stored
 mdDir = "./md_files/"
