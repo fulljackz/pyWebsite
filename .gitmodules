@@ -1,0 +1,3 @@
+[submodule "rfeed"]
+	path = rfeed
+	url = git@github.com:fulljackz/rfeed.git
